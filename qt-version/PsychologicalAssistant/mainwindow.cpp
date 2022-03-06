@@ -9,9 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     file.setFileName("komlpiment.txt");
     if (!file.open(QIODevice::ReadOnly))
     {
-        QMessageBox errorBox;
-        errorBox.setText("Error open file.");
-        errorBox.show();
+
         return;
     }
     compliment = file.readAll();
@@ -29,6 +27,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     ui->textEdit->clear();
-    ui->textEdit->setText(complimentList[QRandomGenerator::global()->bounded(0, complimentList.length())]);
+    if(compliment.length()==0){
+        QMessageBox errorBox;
+        errorBox.setText("Error read date from file.");
+        errorBox.exec();}
+    else
+        ui->textEdit->setText(complimentList[QRandomGenerator::global()->bounded(0, complimentList.length())]);
 }
 
