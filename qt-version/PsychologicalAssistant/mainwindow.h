@@ -7,6 +7,7 @@
 #include <QByteArray>
 #include <QString>
 #include <QRandomGenerator>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +20,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QStringList complimentList;
+    QFile file; // создаем объект класса QFile
+    QString compliment;
 
 private slots:
     void on_pushButton_clicked();

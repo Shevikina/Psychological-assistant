@@ -6,6 +6,17 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    file.setFileName("komlpiment.txt");
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        QMessageBox errorBox;
+        errorBox.setText("Error open file.");
+        errorBox.show();
+        return;
+    }
+    compliment = file.readAll();
+    file.close();
+    complimentList = compliment.split('\n');
 
 }
 
@@ -18,17 +29,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     ui->textEdit->clear();
-    QFile file("komlpiment.txt"); // создаем объект класса QFile
-    QString data; // Создаем объект класса QByteArray, куда мы будем считывать данные
-    if (!file.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
-    {
-        qDebug() << "open error";
-        return; // если это сделать невозможно, то завершаем функцию
-    }
-    data = file.readAll(); //считываем все данные с файла в объект data
-    file.close();
-    QStringList list1 = data.split('\n');
-
-    ui->textEdit->setText(list1[QRandomGenerator::global()->bounded(0, list1.length())]);
+    ui->textEdit->setText(complimentList[QRandomGenerator::global()->bounded(0, complimentList.length())]);
 }
 
