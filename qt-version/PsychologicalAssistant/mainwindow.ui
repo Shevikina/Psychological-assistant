@@ -6,39 +6,47 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1080</width>
+    <height>720</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1920</width>
+    <height>1080</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QTextEdit" name="textEdit">
-        <property name="font">
-         <font>
-          <family>Fifaks 1.0 dev1</family>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>heart.png</normaloff>heart.png</iconset>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="font">
+       <font>
+        <family>Fifaks 1.0 dev1</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>heart.png</normaloff>heart.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

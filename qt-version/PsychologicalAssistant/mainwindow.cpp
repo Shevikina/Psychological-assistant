@@ -15,7 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
     compliment = file.readAll();
     file.close();
     complimentList = compliment.split('\n');
-
+    this->setStyleSheet("background-image:url(background.png)");
+    QPixmap pixmap("heart.png");
+    QIcon ButtonIcon(pixmap);
+    ui->pushButton->setIcon(ButtonIcon);
 }
 
 MainWindow::~MainWindow()
@@ -31,7 +34,8 @@ void MainWindow::on_pushButton_clicked()
         QMessageBox errorBox;
         errorBox.setText("Error read date from file.");
         errorBox.exec();}
-    else
+    else{
         ui->textEdit->setText(complimentList[QRandomGenerator::global()->bounded(0, complimentList.length())]);
+    }
 }
 
